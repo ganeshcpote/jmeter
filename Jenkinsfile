@@ -19,16 +19,7 @@ pipeline {
 		string(name: 'DEPLOY_SERVER', defaultValue: "10.166.168.8", description: 'Deployment Server')
 	}
     stages {
-        stage("SCM Checkout") {
-            steps {				
-				script {
-					sh "git config --global http.sslVerify false"
-				}
-				git branch: params.BRANCH_NAME,
-				credentialsId: 'github-token',
-				url: params.REPO_NAME				
-            }
-        }		
+	
 		stage('Run API Testing') {
             steps {                
 				script {
